@@ -16,7 +16,7 @@ app.post('/api/login', loginHandler);
 
 app.get('/oj/api/problems', getAllOjProblems);
 app.get('/oj/api/problems/:problemId', getOjProblemById);
-app.post('/oj/api/problems/:problemId', checkAnswer);
+app.post('/oj/api/problems/:problemId/answer', checkAnswer);
 
 app.listen(port, () => {
   console.log(`Express Server is running on port ${port}`);
