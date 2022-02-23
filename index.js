@@ -10,13 +10,13 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use((_, res, next) => {
-  if (res.cookies["magic-word"] === "ustsv") {
+app.use((req, res, next) => {
+  if (req.cookies?.["magic-word"] === "ustsv") {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-
-    next();
   }
+
+  next();
 });
 
 app.get("/api/users", (_, res) => {
